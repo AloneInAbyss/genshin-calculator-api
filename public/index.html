@@ -1,12 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sucess</title>
+  <title>Genshin Calculator</title>
 </head>
 <body>
-  Sucesso!!
+  <h1>Genshin Calculator</h1>
+
+  <h2>Níveis de personagem</h2>
+  <form id="characterLevels">
+    <div>
+      <div style="display: inline">
+        <label for="initialCharLevel">Nível inicial</label>
+        <input type="number" id="initialCharLevel" min="1" max="90" autocomplete="off">
+      </div>
+      
+      <div id="outputInitialCharAscension" style="display: none">
+        <label>Com ascensão?</label>
+        <input type="radio" value="Yes" name="characterInitialAscension" id="characterInitialAscensionYes">
+        <label for="characterInitialAscensionYes">Sim</label>
+        <input type="radio" value="No" name="characterInitialAscension" id="characterInitialAscensionNo" checked>
+        <label for="characterInitialAscensionNo">Não</label>
+      </div>
+    </div>
+
+    <div>
+      <div style="display: inline">
+        <label for="finalCharLevel">Nível final</label>
+        <input type="number" id="finalCharLevel" min="1" max="90" autocomplete="off">
+      </div>
+      
+      <div id="outputFinalCharAscension" style="display: none">
+        <label>Com ascensão?</label>
+        <input type="radio" value="Yes" name="characterFinalAscension" id="characterFinalAscensionYes">
+        <label for="characterFinalAscensionYes">Sim</label>
+        <input type="radio" value="No" name="characterFinalAscension" id="characterFinalAscensionNo" checked>
+        <label for="characterFinalAscensionNo">Não</label>
+      </div>
+    </div>
+
+    <p id="resultChar"></p>
+
+    <input type="submit" value="Calcular">
+  </form>
+
+  <h2>Níveis de arma</h2>
+  <form id="weaponLevels">
+    <div>
+      <label for="weaponRarity">Raridade</label>
+      <select id="weaponRarity" name="rarity">
+        <option value="1">1 Estrela</option>
+        <option value="2">2 Estrelas</option>
+        <option value="3">3 Estrelas</option>
+        <option value="4">4 Estrelas</option>
+        <option value="5">5 Estrelas</option>
+      </select>
+    </div>
+
+    <div>
+      <div style="display: inline">
+        <label for="initialWeaponLevel">Nível inicial</label>
+        <input type="number" id="initialWeaponLevel" min="1" max="90" autocomplete="off">
+      </div>
+      
+      <div id="outputInitialWeaponAscension" style="display: none">
+        <label>Com ascensão?</label>
+        <input type="radio" value="Yes" name="weaponInitialAscension" id="weaponInitialAscensionYes">
+        <label for="weaponInitialAscensionYes">Sim</label>
+        <input type="radio" value="No" name="weaponInitialAscension" id="weaponInitialAscensionNo" checked>
+        <label for="weaponInitialAscensionNo">Não</label>
+      </div>
+    </div>
+
+    <div>
+      <div style="display: inline">
+        <label for="finalWeaponLevel">Nível final</label>
+        <input type="number" id="finalWeaponLevel" min="1" max="90" autocomplete="off">
+      </div>
+      
+      <div id="outputFinalWeaponAscension" style="display: none">
+        <label>Com ascensão?</label>
+        <input type="radio" value="Yes" name="weaponFinalAscension" id="weaponFinalAscensionYes">
+        <label for="weaponFinalAscensionYes">Sim</label>
+        <input type="radio" value="No" name="weaponFinalAscension" id="weaponFinalAscensionNo" checked>
+        <label for="weaponFinalAscensionNo">Não</label>
+      </div>
+    </div>
+
+    <p id="resultWeapon"></p>
+
+    <input type="submit" value="Calcular">
+  </form>
+  <script src="/scripts/calculator.js"></script>
 </body>
 </html>
