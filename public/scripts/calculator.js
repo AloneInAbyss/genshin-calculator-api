@@ -28,7 +28,6 @@ function displayAscensionOptions(e) {
   case '60':
   case '70':
   case '80':
-  case '90':
     switch(e.target.id) {
     case 'initialCharLevel':
       outputInitialCharLv.style.display = "inline";
