@@ -1,7 +1,7 @@
 const charAscensions = {
   'ascensionOne': {
     'levelRequired': 20,
-    'ascensionGemsRarity': 1,
+    'ascensionGemsRarity': 2,
     'ascensionGems': 1,
     'eliteBossMaterials': 0,
     'commonMaterialsRarity': 1,
@@ -11,7 +11,7 @@ const charAscensions = {
   },
   'ascensionTwo': {
     'levelRequired': 40,
-    'ascensionGemsRarity': 2,
+    'ascensionGemsRarity': 3,
     'ascensionGems': 3,
     'eliteBossMaterials': 2,
     'commonMaterialsRarity': 1,
@@ -21,7 +21,7 @@ const charAscensions = {
   },
   'ascensionThree': {
     'levelRequired': 50,
-    'ascensionGemsRarity': 2,
+    'ascensionGemsRarity': 3,
     'ascensionGems': 6,
     'eliteBossMaterials': 4,
     'commonMaterialsRarity': 2,
@@ -31,7 +31,7 @@ const charAscensions = {
   },
   'ascensionFour': {
     'levelRequired': 60,
-    'ascensionGemsRarity': 3,
+    'ascensionGemsRarity': 4,
     'ascensionGems': 3,
     'eliteBossMaterials': 8,
     'commonMaterialsRarity': 2,
@@ -41,7 +41,7 @@ const charAscensions = {
   },
   'ascensionFive': {
     'levelRequired': 70,
-    'ascensionGemsRarity': 3,
+    'ascensionGemsRarity': 4,
     'ascensionGems': 6,
     'eliteBossMaterials': 12,
     'commonMaterialsRarity': 3,
@@ -51,7 +51,7 @@ const charAscensions = {
   },
   'ascensionSix': {
     'levelRequired': 80,
-    'ascensionGemsRarity': 4,
+    'ascensionGemsRarity': 5,
     'ascensionGems': 6,
     'eliteBossMaterials': 20,
     'commonMaterialsRarity': 3,
