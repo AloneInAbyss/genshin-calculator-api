@@ -4,6 +4,7 @@ const path = require('path');
 const _ = require('lodash');
 const router = express.Router();
 const charAscensions = require('./utils/charAscensions');
+const charExp = require('./utils/charExp');
 // const weaponAscensions = require('./utils/weaponAscensions');
 
 // Diretórios
@@ -11,6 +12,12 @@ const indexPath = path.join(__dirname, '../public', 'index.html');
 
 /*    Rotas    */
 router.get('/ascension/character', (req, res) => {
+
+  function calculateCharMora(initialLevel, finalLevel) {
+    const result = Math.round((charExp[finalLevel] - charExp[initialLevel]) / 5);
+    return result;
+  }
+
   if (
     _.has(req.query, 'initial-level') &&
     _.has(req.query, 'final-level') &&
@@ -176,23 +183,20 @@ router.get('/ascension/character', (req, res) => {
         break;
       }
 
-      if (initAscended === finalAscended) {
-        console.log('Ascensões iguais, calcular exp');
-      }
-      else {
-        const result = {
-          'ascensionGemsRarityTwo': 0,
-          'ascensionGemsRarityThree': 0,
-          'ascensionGemsRarityFour': 0,
-          'ascensionGemsRarityFive': 0,
-          'eliteBossMaterials': 0,
-          'commonMaterialsRarityOne': 0,
-          'commonMaterialsRarityTwo': 0,
-          'commonMaterialsRarityThree': 0,
-          'localSpecialities': 0,
-          'mora': 0,
-        };
+      const result = {
+        'ascensionGemsRarityTwo': 0,
+        'ascensionGemsRarityThree': 0,
+        'ascensionGemsRarityFour': 0,
+        'ascensionGemsRarityFive': 0,
+        'eliteBossMaterials': 0,
+        'commonMaterialsRarityOne': 0,
+        'commonMaterialsRarityTwo': 0,
+        'commonMaterialsRarityThree': 0,
+        'localSpecialities': 0,
+        'mora': 0,
+      };
 
+      if (initAscended !== finalAscended) {
         let found = false;
         if (initAscended === 'none') found = true;
         for (const ascension in charAscensions) {
@@ -237,8 +241,9 @@ router.get('/ascension/character', (req, res) => {
             found = true;
           }
         }
-        res.send(JSON.stringify(result));
       }
+      result.mora += calculateCharMora(initLv, finalLv);
+      res.send(JSON.stringify(result));
     }
     else {
       res.status(400).send(JSON.stringify({ error: 'Valores incorretos.' }));
