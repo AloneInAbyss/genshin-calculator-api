@@ -49,7 +49,34 @@ function sendFormData(e, type, initialLv, finalLv, initialAsc, finalAsc) {
 
   fetch(url)
     .then(response => response.json())
-    .then(data => console.log(data));
+    .then(data => {
+      // Resultados
+      const eliteBossMaterials = document.createElement("p");
+      const localSpecialities = document.createElement("p");
+      const mora = document.createElement("p");
+      const gems = [
+        'gemsRarityTwo',
+        'gemsRarityThree',
+        'gemsRarityFour',
+        'gemsRarityFive'
+      ];
+      const commonMaterials = [
+        'commonMaterialsRarityOne',
+        'commonMaterialsRarityTwo',
+        'commonMaterialsRarityThree'
+      ];
+
+      document.getElementById("asc1").innerHTML = data.ascensionGemsRarityTwo;
+      document.getElementById("asc2").innerHTML = data.ascensionGemsRarityThree;
+      document.getElementById("asc3").innerHTML = data.ascensionGemsRarityFour;
+      document.getElementById("asc4").innerHTML = data.ascensionGemsRarityFive;
+      document.getElementById("boss").innerHTML = data.eliteBossMaterials;
+      document.getElementById("mat1").innerHTML = data.commonMaterialsRarityOne;
+      document.getElementById("mat2").innerHTML = data.commonMaterialsRarityTwo;
+      document.getElementById("mat3").innerHTML = data.commonMaterialsRarityThree;
+      document.getElementById("spec").innerHTML = data.localSpecialities;
+      document.getElementById("mora").innerHTML = data.mora;
+    });
 }
 
 formCharacter.addEventListener("submit", (e) => {

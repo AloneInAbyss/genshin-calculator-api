@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Genshin Calculator</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <h1>Genshin Calculator</h1>
@@ -11,12 +12,12 @@
   <h2>Níveis de personagem</h2>
   <form id="characterLevels">
     <div>
-      <div style="display: inline">
+      <div class="d-inline">
         <label for="initialCharLevel">Nível inicial</label>
         <input type="number" id="initialCharLevel" name="initial-level" min="1" max="89">
       </div>
       
-      <div id="outputInitialCharAscension" style="display: none">
+      <div id="outputInitialCharAscension" class="d-none">
         <label>Com ascensão?</label>
         <input type="radio" value="true" name="initial-char-ascension" id="characterInitialAscensionYes">
         <label for="characterInitialAscensionYes">Sim</label>
@@ -26,12 +27,12 @@
     </div>
 
     <div>
-      <div style="display: inline">
+      <div class="d-inline">
         <label for="finalCharLevel">Nível final</label>
-        <input type="number" id="finalCharLevel" name="final-level"  min="2" max="90">
+        <input type="number" id="finalCharLevel" name="final-level" min="2" max="90">
       </div>
       
-      <div id="outputFinalCharAscension" style="display: none">
+      <div id="outputFinalCharAscension" class="d-none">
         <label>Com ascensão?</label>
         <input type="radio" value="true" name="final-char-ascension" id="characterFinalAscensionYes">
         <label for="characterFinalAscensionYes">Sim</label>
@@ -40,7 +41,49 @@
       </div>
     </div>
 
-    <p id="resultChar"></p>
+    <div id="resultChar">
+      <p>Materiais:</p>
+      <figure>
+        <img src="https://res.cloudinary.com/dnoibyqq2/image/upload/v1620829098/genshin-app/ascension-materials/anemo/vayuda-turquoise-sliver.png" alt="">
+        <figcaption id="asc1"></figcaption>
+      </figure>
+      <figure>
+        <img src="https://res.cloudinary.com/dnoibyqq2/image/upload/v1620829098/genshin-app/ascension-materials/anemo/vayuda-turquoise-fragment.png" alt="">
+        <figcaption id="asc2"></figcaption>
+      </figure>
+      <figure>
+        <img src="https://res.cloudinary.com/dnoibyqq2/image/upload/v1620829098/genshin-app/ascension-materials/anemo/vayuda-turquoise-chunk.png" alt="">
+        <figcaption id="asc3"></figcaption>
+      </figure>
+      <figure>
+        <img src="https://res.cloudinary.com/dnoibyqq2/image/upload/v1620829098/genshin-app/ascension-materials/anemo/vayuda-turquoise-gemstone.png" alt="">
+        <figcaption id="asc4"></figcaption>
+      </figure>
+      <figure>
+        <img src="https://static.wikia.nocookie.net/gensin-impact/images/8/84/Item_Mora.png" alt="">
+        <figcaption id="mora"></figcaption>
+      </figure>
+      <figure>
+        <img src="https://res.cloudinary.com/dnoibyqq2/image/upload/v1620978147/genshin-app/enemy-drops/firm-arrowhead.png" alt="">
+        <figcaption id="mat1"></figcaption>
+      </figure>
+      <figure>
+        <img src="https://res.cloudinary.com/dnoibyqq2/image/upload/v1620978147/genshin-app/enemy-drops/sharp-arrowhead.png" alt="">
+        <figcaption id="mat2"></figcaption>
+      </figure>
+      <figure>
+        <img src="https://res.cloudinary.com/dnoibyqq2/image/upload/v1620978147/genshin-app/enemy-drops/weathered-arrowhead.png" alt="">
+        <figcaption id="mat3"></figcaption>
+      </figure>
+      <figure>
+        <img src="https://res.cloudinary.com/dnoibyqq2/image/upload/v1620829094/genshin-app/world-boss-materials/juvenile-jade.png" alt="">
+        <figcaption id="boss"></figcaption>
+      </figure>
+      <figure>
+        <img src="https://res.cloudinary.com/dnoibyqq2/image/upload/v1620824986/genshin-app/specialties/silk-flower.png" alt="">
+        <figcaption id="spec"></figcaption>
+      </figure>
+    </div>
 
     <input type="submit" value="Calcular">
   </form>
@@ -59,12 +102,12 @@
     </div>
 
     <div>
-      <div style="display: inline">
+      <div class="d-inline">
         <label for="initialWeaponLevel">Nível inicial</label>
         <input type="number" id="initialWeaponLevel" name="initial-ascension" min="1" max="89">
       </div>
       
-      <div id="outputInitialWeaponAscension" style="display: none">
+      <div id="outputInitialWeaponAscension" class="d-none">
         <label>Com ascensão?</label>
         <input type="radio" value="true" name="initial-weapon-ascension" id="weaponInitialAscensionYes">
         <label for="weaponInitialAscensionYes">Sim</label>
@@ -74,12 +117,12 @@
     </div>
 
     <div>
-      <div style="display: inline">
+      <div class="d-inline">
         <label for="finalWeaponLevel">Nível final</label>
         <input type="number" id="finalWeaponLevel" name="final-ascension" min="2" max="90">
       </div>
       
-      <div id="outputFinalWeaponAscension" style="display: none">
+      <div id="outputFinalWeaponAscension" class="d-none">
         <label>Com ascensão?</label>
         <input type="radio" value="true" name="final-weapon-ascension" id="weaponFinalAscensionYes">
         <label for="weaponFinalAscensionYes">Sim</label>
