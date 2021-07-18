@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Genshin Calculator</title>
   <link rel="stylesheet" href="/css/style.css">
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
 </head>
 <body>
   <h1>Genshin Calculator</h1>
@@ -39,6 +44,12 @@
         <input type="radio" value="false" name="final-char-ascension" id="characterFinalAscensionNo" checked>
         <label for="characterFinalAscensionNo">Não</label>
       </div>
+    </div>
+    
+    <div id="characters">
+      <label for="charSelect">Personagem: </label>
+      <select name="character" id="charSelect" form="characterLevels">
+      </select>
     </div>
 
     <div id="resultChar">

@@ -160,3 +160,9 @@ window.onload = function(){
   formCharacter.reset();
   formWeapon.reset();
 }
+
+// jQuery
+$(document).ready(function(){
+  let txt = $("<option></option>", { value: 'Hu Tao' }).text("Hu Tao");
+  $("#charSelect").append(txt);
+}); 
