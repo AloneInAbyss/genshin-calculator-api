@@ -5,16 +5,20 @@ const _ = require('lodash');
 const router = express.Router();
 const charAscensions = require('./utils/charAscensions');
 const charExp = require('./utils/charExp');
-// const weaponAscensions = require('./utils/weaponAscensions');
 
 // Diretórios
 const indexPath = path.join(__dirname, '../public', 'index.html');
 
-/*    Rotas    */
 router.get('/ascension/character', (req, res) => {
 
   function calculateCharMora(initialLevel, finalLevel) {
     const result = Math.round((charExp[finalLevel] - charExp[initialLevel]) / 5);
+    return result;
+  }
+
+  function calculateExpBooks(initialLevel, finalLevel) {
+    const totalExp = charExp[finalLevel] - charExp[initialLevel];
+    const result = Math.round(totalExp / 20000);
     return result;
   }
 
@@ -194,6 +198,7 @@ router.get('/ascension/character', (req, res) => {
         'commonMaterialsRarityThree': 0,
         'localSpecialities': 0,
         'mora': 0,
+        'expBooks': 0,
       };
 
       if (initAscended !== finalAscended) {
@@ -243,6 +248,7 @@ router.get('/ascension/character', (req, res) => {
         }
       }
       result.mora += calculateCharMora(initLv, finalLv);
+      result.expBooks = calculateExpBooks(initLv, finalLv);
       res.setHeader('Content-Type', 'application/json');
       res.setHeader('Access-Control-Allow-Origin', '*');
       res.end(JSON.stringify(result));
@@ -263,6 +269,5 @@ router.get('/ascension/weapon', (req, res) => {
 router.all('*', (req, res) => {
   res.sendFile(indexPath);
 });
-/*             */
 
 module.exports = router;
