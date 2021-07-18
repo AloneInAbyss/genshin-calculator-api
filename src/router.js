@@ -243,7 +243,9 @@ router.get('/ascension/character', (req, res) => {
         }
       }
       result.mora += calculateCharMora(initLv, finalLv);
-      res.send(JSON.stringify(result));
+      res.setHeader('Content-Type', 'application/json');
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.end(JSON.stringify(result));
     }
     else {
       res.status(400).send(JSON.stringify({ error: 'Valores incorretos.' }));
