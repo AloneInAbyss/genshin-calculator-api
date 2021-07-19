@@ -133,7 +133,7 @@ router.get('/ascension/character', (req, res) => {
   result.expBooks = calculateExpBooks(initLv, finalLv);
 
   res.setHeader('Content-Type', 'application/json');
-  // res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.end(JSON.stringify(result));
 });
 
