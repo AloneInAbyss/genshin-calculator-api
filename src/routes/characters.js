@@ -155,6 +155,71 @@ router.get('/material/character', (req, res) => {
 
   let result = '';
   switch(req.query.character) {
+  case 'Aloy':
+    result = {
+      'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_341_50',
+      'ascensionGemsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_341_50',
+      'ascensionGemsRarityFour': 'https://genshin-calculator-api.herokuapp.com/images/i_313_50',
+      'ascensionGemsRarityFive': 'https://genshin-calculator-api.herokuapp.com/images/i_314_50',
+      'eliteBossMaterials': 'https://genshin-calculator-api.herokuapp.com/images/i_212_50',
+      'commonMaterialsRarityOne': 'https://genshin-calculator-api.herokuapp.com/images/i_185_50',
+      'commonMaterialsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_186_50',
+      'commonMaterialsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_187_50',
+      'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_685_50',
+    };
+    break;
+  case 'Kokomi':
+    result = {
+      'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_321_50',
+      'ascensionGemsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_322_50',
+      'ascensionGemsRarityFour': 'https://genshin-calculator-api.herokuapp.com/images/i_323_50',
+      'ascensionGemsRarityFive': 'https://genshin-calculator-api.herokuapp.com/images/i_324_50',
+      'eliteBossMaterials': 'https://genshin-calculator-api.herokuapp.com/images/i_213_50',
+      'commonMaterialsRarityOne': 'https://genshin-calculator-api.herokuapp.com/images/i_185_50',
+      'commonMaterialsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_186_50',
+      'commonMaterialsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_187_50',
+      'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_685_50',
+    };
+    break;
+  case 'Raiden':
+    result = {
+      'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_331_50',
+      'ascensionGemsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_332_50',
+      'ascensionGemsRarityFour': 'https://genshin-calculator-api.herokuapp.com/images/i_333_50',
+      'ascensionGemsRarityFive': 'https://genshin-calculator-api.herokuapp.com/images/i_334_50',
+      'eliteBossMaterials': 'https://genshin-calculator-api.herokuapp.com/images/i_214_50',
+      'commonMaterialsRarityOne': 'https://genshin-calculator-api.herokuapp.com/images/i_161_50',
+      'commonMaterialsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_162_50',
+      'commonMaterialsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_163_50',
+      'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_686_50',
+    };
+    break;
+  case 'Sara':
+    result = {
+      'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_331_50',
+      'ascensionGemsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_332_50',
+      'ascensionGemsRarityFour': 'https://genshin-calculator-api.herokuapp.com/images/i_333_50',
+      'ascensionGemsRarityFive': 'https://genshin-calculator-api.herokuapp.com/images/i_334_50',
+      'eliteBossMaterials': 'https://genshin-calculator-api.herokuapp.com/images/i_214_50',
+      'commonMaterialsRarityOne': 'https://genshin-calculator-api.herokuapp.com/images/i_31_50',
+      'commonMaterialsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_32_50',
+      'commonMaterialsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_33_50',
+      'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_680_50',
+    };
+    break;
+  case 'Sayu':
+    result = {
+      'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_351_50',
+      'ascensionGemsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_352_50',
+      'ascensionGemsRarityFour': 'https://genshin-calculator-api.herokuapp.com/images/i_353_50',
+      'ascensionGemsRarityFive': 'https://genshin-calculator-api.herokuapp.com/images/i_354_50',
+      'eliteBossMaterials': 'https://genshin-calculator-api.herokuapp.com/images/i_210_50',
+      'commonMaterialsRarityOne': 'https://genshin-calculator-api.herokuapp.com/images/i_131_50',
+      'commonMaterialsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_132_50',
+      'commonMaterialsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_133_50',
+      'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_679_50',
+    };
+    break;
   case 'Yoimiya':
     result = {
       'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_311_50',
