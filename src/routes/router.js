@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/images/:name', (req, res) => {
   res.setHeader('Content-Type', 'image/png');
-  const URL = path.resolve(__dirname, `../public/images/${req.params.name}.png`);
+  const URL = path.join(__dirname, `../public/images/${req.params.name}.png`);
   res.sendFile(URL);
 });
 
