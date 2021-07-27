@@ -9,6 +9,7 @@ const port = process.env.PORT;
 const charactersRouter = require('./routes/characters');
 const router = require('./routes/router');
 
+app.use(express.static(__dirname + '/public'));
 app.use(charactersRouter);
 app.use(router);
 

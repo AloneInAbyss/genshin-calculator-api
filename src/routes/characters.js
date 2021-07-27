@@ -157,15 +157,15 @@ router.get('/material/character', (req, res) => {
   switch(req.query.character) {
   case 'Yoimiya':
     result = {
-      'ascensionGemsRarityTwo': 'https://genshin.honeyhunterworld.com/img/upgrade/gem/i_311_50.png',
-      'ascensionGemsRarityThree': 'https://genshin.honeyhunterworld.com/img/upgrade/gem/i_312_50.png',
-      'ascensionGemsRarityFour': 'https://genshin.honeyhunterworld.com/img/upgrade/gem/i_313_50.png',
-      'ascensionGemsRarityFive': 'https://genshin.honeyhunterworld.com/img/upgrade/gem/i_314_50.png',
-      'eliteBossMaterials': 'https://genshin.honeyhunterworld.com/img/upgrade/gem/i_212_50.png',
-      'commonMaterialsRarityOne': 'https://genshin.honeyhunterworld.com/img/upgrade/material/i_41_50.png',
-      'commonMaterialsRarityTwo': 'https://genshin.honeyhunterworld.com/img/upgrade/material/i_42_50.png',
-      'commonMaterialsRarityThree': 'https://genshin.honeyhunterworld.com/img/upgrade/material/i_43_50.png',
-      'localSpecialities': 'https://genshin.honeyhunterworld.com/img/upgrade/gem/i_681_50.png',
+      'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_311_50.png',
+      'ascensionGemsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_312_50.png',
+      'ascensionGemsRarityFour': 'https://genshin-calculator-api.herokuapp.com/images/i_313_50.png',
+      'ascensionGemsRarityFive': 'https://genshin-calculator-api.herokuapp.com/images/i_314_50.png',
+      'eliteBossMaterials': 'https://genshin-calculator-api.herokuapp.com/images/i_212_50.png',
+      'commonMaterialsRarityOne': 'https://genshin-calculator-api.herokuapp.com/images/i_41_50.png',
+      'commonMaterialsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_42_50.png',
+      'commonMaterialsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_43_50.png',
+      'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_681_50.png',
     };
     break;
   default:
