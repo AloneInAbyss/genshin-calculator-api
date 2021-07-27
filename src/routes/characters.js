@@ -168,6 +168,19 @@ router.get('/material/character', (req, res) => {
       'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_685_50',
     };
     break;
+  case 'Ayaka':
+    result = {
+      'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_341_50',
+      'ascensionGemsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_341_50',
+      'ascensionGemsRarityFour': 'https://genshin-calculator-api.herokuapp.com/images/i_313_50',
+      'ascensionGemsRarityFive': 'https://genshin-calculator-api.herokuapp.com/images/i_314_50',
+      'eliteBossMaterials': 'https://genshin-calculator-api.herokuapp.com/images/i_211_50',
+      'commonMaterialsRarityOne': 'https://genshin-calculator-api.herokuapp.com/images/i_161_50',
+      'commonMaterialsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_162_50',
+      'commonMaterialsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_163_50',
+      'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_678_50',
+    };
+    break;
   case 'Hutao':
     result = {
       'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_311_50',
