@@ -5,6 +5,13 @@ const charExp = require('../utils/charExp');
 const checkAscensionNumber = require('../calcs/ascensionNumber');
 const router = express.Router();
 
+function verifyParameters(query, params) {
+  for (const param of params) {
+    if (!_.has(query, param)) return false;
+  }
+  return true;
+}
+
 router.get('/ascension/character', (req, res) => {
   function calculateCharMora(initialLevel, finalLevel) {
     const result = Math.round((charExp[finalLevel] - charExp[initialLevel]) / 5);
@@ -15,13 +22,6 @@ router.get('/ascension/character', (req, res) => {
     const totalExp = charExp[finalLevel] - charExp[initialLevel];
     const result = Math.round(totalExp / 20000);
     return result;
-  }
-
-  function verifyParameters(query, params) {
-    for (const param of params) {
-      if (!_.has(query, param)) return false;
-    }
-    return true;
   }
 
   function verifyLevelRange(initialLevel, finalLevel) {
@@ -46,6 +46,7 @@ router.get('/ascension/character', (req, res) => {
   ];
   if (!verifyParameters(req.query, requiredParameters)) {
     res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     return res.status(400).send(JSON.stringify({ error: 'Missing information.' }));
   }
 
@@ -53,6 +54,7 @@ router.get('/ascension/character', (req, res) => {
   const finalLv = parseInt(req.query['final-level']);
   if (!verifyLevelRange(initLv, finalLv)) {
     res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     return res.status(400).send(JSON.stringify({ error: 'Incorrect level values.' }));
   }
 
@@ -65,6 +67,7 @@ router.get('/ascension/character', (req, res) => {
   }
   catch (e) {
     res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     return res.status(400).send(JSON.stringify({ error: 'Unexpected input.' }));
   }
 
@@ -135,6 +138,86 @@ router.get('/ascension/character', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.end(JSON.stringify(result));
+});
+
+router.get('/material/character', (req, res) => {
+  const requiredParameters = [
+    'character',
+  ];
+  if (!verifyParameters(req.query, requiredParameters)) {
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    return res.status(400).send(JSON.stringify({
+      error: 'true',
+      message: 'Missing information',
+    }));
+  }
+
+  let result = '';
+  switch(req.query.character) {
+  case 'Yoimiya':
+    result = {
+      'ascensionGemsRarityTwo': 'https://genshin.honeyhunterworld.com/img/upgrade/gem/i_311_50.png',
+      'ascensionGemsRarityThree': 'https://genshin.honeyhunterworld.com/img/upgrade/gem/i_312_50.png',
+      'ascensionGemsRarityFour': 'https://genshin.honeyhunterworld.com/img/upgrade/gem/i_313_50.png',
+      'ascensionGemsRarityFive': 'https://genshin.honeyhunterworld.com/img/upgrade/gem/i_314_50.png',
+      'eliteBossMaterials': 'https://genshin.honeyhunterworld.com/img/upgrade/gem/i_212_50.png',
+      'commonMaterialsRarityOne': 'https://genshin.honeyhunterworld.com/img/upgrade/material/i_41_50.png',
+      'commonMaterialsRarityTwo': 'https://genshin.honeyhunterworld.com/img/upgrade/material/i_42_50.png',
+      'commonMaterialsRarityThree': 'https://genshin.honeyhunterworld.com/img/upgrade/material/i_43_50.png',
+      'localSpecialities': 'https://genshin.honeyhunterworld.com/img/upgrade/gem/i_681_50.png',
+    };
+    break;
+  default:
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    return res.status(400).send(JSON.stringify({
+      error: 'true',
+      message: 'Character not found',
+    }));
+  }
+
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.end(JSON.stringify({
+    error: false,
+    message: 'Character fetched successfully',
+    payload: {
+      character: {
+        commonAscensionMaterials: [
+          {
+            iconUrl: result.commonMaterialsRarityOne,
+          },
+          {
+            iconUrl: result.commonMaterialsRarityTwo,
+          },
+          {
+            iconUrl: result.commonMaterialsRarityThree,
+          },
+        ],
+        ascensionMaterials: [
+          {
+            iconUrl: result.ascensionGemsRarityTwo,
+          },
+          {
+            iconUrl: result.ascensionGemsRarityThree,
+          },
+          {
+            iconUrl: result.ascensionGemsRarityFour,
+          },
+          {
+            iconUrl: result.ascensionGemsRarityFive,
+          },
+          {
+            iconUrl: result.eliteBossMaterials,
+          },
+        ],
+        localSpecialty: {
+          iconUrl: result.localSpecialities,
+        },
+      },
+    },
+  }));
 });
 
 module.exports = router;
