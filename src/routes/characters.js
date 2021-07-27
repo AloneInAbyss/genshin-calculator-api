@@ -168,6 +168,32 @@ router.get('/material/character', (req, res) => {
       'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_685_50',
     };
     break;
+  case 'Hutao':
+    result = {
+      'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_311_50',
+      'ascensionGemsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_312_50',
+      'ascensionGemsRarityFour': 'https://genshin-calculator-api.herokuapp.com/images/i_313_50',
+      'ascensionGemsRarityFive': 'https://genshin-calculator-api.herokuapp.com/images/i_314_50',
+      'eliteBossMaterials': 'https://genshin-calculator-api.herokuapp.com/images/i_207_50',
+      'commonMaterialsRarityOne': 'https://genshin-calculator-api.herokuapp.com/images/i_131_50',
+      'commonMaterialsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_132_50',
+      'commonMaterialsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_133_50',
+      'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_608_50',
+    };
+    break;
+  case 'Kazuha':
+    result = {
+      'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_351_50',
+      'ascensionGemsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_352_50',
+      'ascensionGemsRarityFour': 'https://genshin-calculator-api.herokuapp.com/images/i_353_50',
+      'ascensionGemsRarityFive': 'https://genshin-calculator-api.herokuapp.com/images/i_354_50',
+      'eliteBossMaterials': 'https://genshin-calculator-api.herokuapp.com/images/i_210_50',
+      'commonMaterialsRarityOne': 'https://genshin-calculator-api.herokuapp.com/images/i_121_50',
+      'commonMaterialsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_122_50',
+      'commonMaterialsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_123_50',
+      'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_675_50',
+    };
+    break;
   case 'Kokomi':
     result = {
       'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_321_50',
