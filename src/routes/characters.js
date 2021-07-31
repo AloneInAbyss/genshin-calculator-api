@@ -3,6 +3,7 @@ const _ = require('lodash');
 const charAscensions = require('../utils/charAscensions');
 const charExp = require('../utils/charExp');
 const charTalents = require('../utils/charTalents');
+const materials = require('../utils/materialsList');
 const checkAscensionNumber = require('../calcs/ascensionNumber');
 const router = express.Router();
 
@@ -11,6 +12,123 @@ function verifyParameters(query, params) {
     if (!_.has(query, param)) return false;
   }
   return true;
+}
+
+function checkCharacterMaterial(character, URL) {
+  switch(character) {
+  case 'Aloy':
+    return {
+      'ascensionGemsRarityTwo': URL + materials.Gems.Cryo.rarityTwo,
+      'ascensionGemsRarityThree': URL + materials.Gems.Cryo.rarityThree,
+      'ascensionGemsRarityFour': URL + materials.Gems.Cryo.rarityFour,
+      'ascensionGemsRarityFive': URL + materials.Gems.Cryo.rarityFive,
+      'eliteBossMaterials': URL + 'i_208_50',
+      'commonMaterialsRarityOne': URL + 'i_185_50',
+      'commonMaterialsRarityTwo': URL + 'i_186_50',
+      'commonMaterialsRarityThree': URL + 'i_187_50',
+      'localSpecialities': URL + 'i_679_50',
+    };
+  case 'Ayaka':
+    return {
+      'ascensionGemsRarityTwo': URL + materials.Gems.Cryo.rarityTwo,
+      'ascensionGemsRarityThree': URL + materials.Gems.Cryo.rarityThree,
+      'ascensionGemsRarityFour': URL + materials.Gems.Cryo.rarityFour,
+      'ascensionGemsRarityFive': URL + materials.Gems.Cryo.rarityFive,
+      'eliteBossMaterials': URL + 'i_211_50',
+      'commonMaterialsRarityOne': URL + 'i_161_50',
+      'commonMaterialsRarityTwo': URL + 'i_162_50',
+      'commonMaterialsRarityThree': URL + 'i_163_50',
+      'localSpecialities': URL + 'i_678_50',
+    };
+  case 'Hutao':
+    return {
+      'ascensionGemsRarityTwo': URL + materials.Gems.Pyro.rarityTwo,
+      'ascensionGemsRarityThree': URL + materials.Gems.Pyro.rarityThree,
+      'ascensionGemsRarityFour': URL + materials.Gems.Pyro.rarityFour,
+      'ascensionGemsRarityFive': URL + materials.Gems.Pyro.rarityFive,
+      'eliteBossMaterials': URL + 'i_207_50',
+      'commonMaterialsRarityOne': URL + 'i_131_50',
+      'commonMaterialsRarityTwo': URL + 'i_132_50',
+      'commonMaterialsRarityThree': URL + 'i_133_50',
+      'localSpecialities': URL + 'i_608_50',
+    };
+  case 'Kazuha':
+    return {
+      'ascensionGemsRarityTwo': URL + materials.Gems.Anemo.rarityTwo,
+      'ascensionGemsRarityThree': URL + materials.Gems.Anemo.rarityThree,
+      'ascensionGemsRarityFour': URL + materials.Gems.Anemo.rarityFour,
+      'ascensionGemsRarityFive': URL + materials.Gems.Anemo.rarityFive,
+      'eliteBossMaterials': URL + 'i_210_50',
+      'commonMaterialsRarityOne': URL + 'i_121_50',
+      'commonMaterialsRarityTwo': URL + 'i_122_50',
+      'commonMaterialsRarityThree': URL + 'i_123_50',
+      'localSpecialities': URL + 'i_675_50',
+    };
+  case 'Kokomi':
+    return {
+      'ascensionGemsRarityTwo': URL + materials.Gems.Hydro.rarityTwo,
+      'ascensionGemsRarityThree': URL + materials.Gems.Hydro.rarityThree,
+      'ascensionGemsRarityFour': URL + materials.Gems.Hydro.rarityFour,
+      'ascensionGemsRarityFive': URL + materials.Gems.Hydro.rarityFive,
+      'eliteBossMaterials': URL + 'i_213_50',
+      'commonMaterialsRarityOne': URL + 'i_185_50',
+      'commonMaterialsRarityTwo': URL + 'i_186_50',
+      'commonMaterialsRarityThree': URL + 'i_187_50',
+      'localSpecialities': URL + 'i_685_50',
+    };
+  case 'Raiden':
+    return {
+      'ascensionGemsRarityTwo': URL + materials.Gems.Electro.rarityTwo,
+      'ascensionGemsRarityThree': URL + materials.Gems.Electro.rarityThree,
+      'ascensionGemsRarityFour': URL + materials.Gems.Electro.rarityFour,
+      'ascensionGemsRarityFive': URL + materials.Gems.Electro.rarityFive,
+      'eliteBossMaterials': URL + 'i_214_50',
+      'commonMaterialsRarityOne': URL + 'i_161_50',
+      'commonMaterialsRarityTwo': URL + 'i_162_50',
+      'commonMaterialsRarityThree': URL + 'i_163_50',
+      'localSpecialities': URL + 'i_686_50',
+    };
+  case 'Sara':
+    return {
+      'ascensionGemsRarityTwo': URL + materials.Gems.Electro.rarityTwo,
+      'ascensionGemsRarityThree': URL + materials.Gems.Electro.rarityThree,
+      'ascensionGemsRarityFour': URL + materials.Gems.Electro.rarityFour,
+      'ascensionGemsRarityFive': URL + materials.Gems.Electro.rarityFive,
+      'eliteBossMaterials': URL + 'i_214_50',
+      'commonMaterialsRarityOne': URL + 'i_31_50',
+      'commonMaterialsRarityTwo': URL + 'i_32_50',
+      'commonMaterialsRarityThree': URL + 'i_33_50',
+      'localSpecialities': URL + 'i_680_50',
+    };
+  case 'Sayu':
+    return {
+      'ascensionGemsRarityTwo': URL + materials.Gems.Anemo.rarityTwo,
+      'ascensionGemsRarityThree': URL + materials.Gems.Anemo.rarityThree,
+      'ascensionGemsRarityFour': URL + materials.Gems.Anemo.rarityFour,
+      'ascensionGemsRarityFive': URL + materials.Gems.Anemo.rarityFive,
+      'eliteBossMaterials': URL + 'i_210_50',
+      'commonMaterialsRarityOne': URL + 'i_131_50',
+      'commonMaterialsRarityTwo': URL + 'i_132_50',
+      'commonMaterialsRarityThree': URL + 'i_133_50',
+      'localSpecialities': URL + 'i_679_50',
+    };
+  case 'Yoimiya':
+    return {
+      'ascensionGemsRarityTwo': URL + materials.Gems.Pyro.rarityTwo,
+      'ascensionGemsRarityThree': URL + materials.Gems.Pyro.rarityThree,
+      'ascensionGemsRarityFour': URL + materials.Gems.Pyro.rarityFour,
+      'ascensionGemsRarityFive': URL + materials.Gems.Pyro.rarityFive,
+      'eliteBossMaterials': URL + 'i_212_50',
+      'commonMaterialsRarityOne': URL + 'i_41_50',
+      'commonMaterialsRarityTwo': URL + 'i_42_50',
+      'commonMaterialsRarityThree': URL + 'i_43_50',
+      'localSpecialities': URL + 'i_681_50',
+    };
+  default:
+    return {
+      error: true,
+    };
+  }
 }
 
 router.get('/ascension/character', (req, res) => {
@@ -148,135 +266,19 @@ router.get('/material/character', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.setHeader('Access-Control-Allow-Origin', '*');
     return res.status(400).send(JSON.stringify({
-      error: 'true',
+      error: true,
       message: 'Missing information',
     }));
   }
 
-  let result = '';
-  switch(req.query.character) {
-  case 'Aloy':
-    result = {
-      'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_341_50',
-      'ascensionGemsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_342_50',
-      'ascensionGemsRarityFour': 'https://genshin-calculator-api.herokuapp.com/images/i_343_50',
-      'ascensionGemsRarityFive': 'https://genshin-calculator-api.herokuapp.com/images/i_344_50',
-      'eliteBossMaterials': 'https://genshin-calculator-api.herokuapp.com/images/i_208_50',
-      'commonMaterialsRarityOne': 'https://genshin-calculator-api.herokuapp.com/images/i_185_50',
-      'commonMaterialsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_186_50',
-      'commonMaterialsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_187_50',
-      'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_679_50',
-    };
-    break;
-  case 'Ayaka':
-    result = {
-      'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_341_50',
-      'ascensionGemsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_341_50',
-      'ascensionGemsRarityFour': 'https://genshin-calculator-api.herokuapp.com/images/i_313_50',
-      'ascensionGemsRarityFive': 'https://genshin-calculator-api.herokuapp.com/images/i_314_50',
-      'eliteBossMaterials': 'https://genshin-calculator-api.herokuapp.com/images/i_211_50',
-      'commonMaterialsRarityOne': 'https://genshin-calculator-api.herokuapp.com/images/i_161_50',
-      'commonMaterialsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_162_50',
-      'commonMaterialsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_163_50',
-      'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_678_50',
-    };
-    break;
-  case 'Hutao':
-    result = {
-      'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_311_50',
-      'ascensionGemsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_312_50',
-      'ascensionGemsRarityFour': 'https://genshin-calculator-api.herokuapp.com/images/i_313_50',
-      'ascensionGemsRarityFive': 'https://genshin-calculator-api.herokuapp.com/images/i_314_50',
-      'eliteBossMaterials': 'https://genshin-calculator-api.herokuapp.com/images/i_207_50',
-      'commonMaterialsRarityOne': 'https://genshin-calculator-api.herokuapp.com/images/i_131_50',
-      'commonMaterialsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_132_50',
-      'commonMaterialsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_133_50',
-      'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_608_50',
-    };
-    break;
-  case 'Kazuha':
-    result = {
-      'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_351_50',
-      'ascensionGemsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_352_50',
-      'ascensionGemsRarityFour': 'https://genshin-calculator-api.herokuapp.com/images/i_353_50',
-      'ascensionGemsRarityFive': 'https://genshin-calculator-api.herokuapp.com/images/i_354_50',
-      'eliteBossMaterials': 'https://genshin-calculator-api.herokuapp.com/images/i_210_50',
-      'commonMaterialsRarityOne': 'https://genshin-calculator-api.herokuapp.com/images/i_121_50',
-      'commonMaterialsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_122_50',
-      'commonMaterialsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_123_50',
-      'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_675_50',
-    };
-    break;
-  case 'Kokomi':
-    result = {
-      'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_321_50',
-      'ascensionGemsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_322_50',
-      'ascensionGemsRarityFour': 'https://genshin-calculator-api.herokuapp.com/images/i_323_50',
-      'ascensionGemsRarityFive': 'https://genshin-calculator-api.herokuapp.com/images/i_324_50',
-      'eliteBossMaterials': 'https://genshin-calculator-api.herokuapp.com/images/i_213_50',
-      'commonMaterialsRarityOne': 'https://genshin-calculator-api.herokuapp.com/images/i_185_50',
-      'commonMaterialsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_186_50',
-      'commonMaterialsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_187_50',
-      'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_685_50',
-    };
-    break;
-  case 'Raiden':
-    result = {
-      'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_331_50',
-      'ascensionGemsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_332_50',
-      'ascensionGemsRarityFour': 'https://genshin-calculator-api.herokuapp.com/images/i_333_50',
-      'ascensionGemsRarityFive': 'https://genshin-calculator-api.herokuapp.com/images/i_334_50',
-      'eliteBossMaterials': 'https://genshin-calculator-api.herokuapp.com/images/i_214_50',
-      'commonMaterialsRarityOne': 'https://genshin-calculator-api.herokuapp.com/images/i_161_50',
-      'commonMaterialsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_162_50',
-      'commonMaterialsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_163_50',
-      'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_686_50',
-    };
-    break;
-  case 'Sara':
-    result = {
-      'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_331_50',
-      'ascensionGemsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_332_50',
-      'ascensionGemsRarityFour': 'https://genshin-calculator-api.herokuapp.com/images/i_333_50',
-      'ascensionGemsRarityFive': 'https://genshin-calculator-api.herokuapp.com/images/i_334_50',
-      'eliteBossMaterials': 'https://genshin-calculator-api.herokuapp.com/images/i_214_50',
-      'commonMaterialsRarityOne': 'https://genshin-calculator-api.herokuapp.com/images/i_31_50',
-      'commonMaterialsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_32_50',
-      'commonMaterialsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_33_50',
-      'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_680_50',
-    };
-    break;
-  case 'Sayu':
-    result = {
-      'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_351_50',
-      'ascensionGemsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_352_50',
-      'ascensionGemsRarityFour': 'https://genshin-calculator-api.herokuapp.com/images/i_353_50',
-      'ascensionGemsRarityFive': 'https://genshin-calculator-api.herokuapp.com/images/i_354_50',
-      'eliteBossMaterials': 'https://genshin-calculator-api.herokuapp.com/images/i_210_50',
-      'commonMaterialsRarityOne': 'https://genshin-calculator-api.herokuapp.com/images/i_131_50',
-      'commonMaterialsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_132_50',
-      'commonMaterialsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_133_50',
-      'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_679_50',
-    };
-    break;
-  case 'Yoimiya':
-    result = {
-      'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_311_50',
-      'ascensionGemsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_312_50',
-      'ascensionGemsRarityFour': 'https://genshin-calculator-api.herokuapp.com/images/i_313_50',
-      'ascensionGemsRarityFive': 'https://genshin-calculator-api.herokuapp.com/images/i_314_50',
-      'eliteBossMaterials': 'https://genshin-calculator-api.herokuapp.com/images/i_212_50',
-      'commonMaterialsRarityOne': 'https://genshin-calculator-api.herokuapp.com/images/i_41_50',
-      'commonMaterialsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_42_50',
-      'commonMaterialsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_43_50',
-      'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_681_50',
-    };
-    break;
-  default:
+  const URL = 'https://genshin-calculator-api.herokuapp.com/images/';
+  const result = checkCharacterMaterial(req.query.character, URL);
+
+  if (result.error) {
     res.setHeader('Content-Type', 'application/json');
     res.setHeader('Access-Control-Allow-Origin', '*');
     return res.status(400).send(JSON.stringify({
-      error: 'true',
+      error: true,
       message: 'Character not found',
     }));
   }
