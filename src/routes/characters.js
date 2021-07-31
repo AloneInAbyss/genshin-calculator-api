@@ -158,14 +158,14 @@ router.get('/material/character', (req, res) => {
   case 'Aloy':
     result = {
       'ascensionGemsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_341_50',
-      'ascensionGemsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_341_50',
-      'ascensionGemsRarityFour': 'https://genshin-calculator-api.herokuapp.com/images/i_313_50',
-      'ascensionGemsRarityFive': 'https://genshin-calculator-api.herokuapp.com/images/i_314_50',
-      'eliteBossMaterials': 'https://genshin-calculator-api.herokuapp.com/images/i_212_50',
+      'ascensionGemsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_342_50',
+      'ascensionGemsRarityFour': 'https://genshin-calculator-api.herokuapp.com/images/i_343_50',
+      'ascensionGemsRarityFive': 'https://genshin-calculator-api.herokuapp.com/images/i_344_50',
+      'eliteBossMaterials': 'https://genshin-calculator-api.herokuapp.com/images/i_208_50',
       'commonMaterialsRarityOne': 'https://genshin-calculator-api.herokuapp.com/images/i_185_50',
       'commonMaterialsRarityTwo': 'https://genshin-calculator-api.herokuapp.com/images/i_186_50',
       'commonMaterialsRarityThree': 'https://genshin-calculator-api.herokuapp.com/images/i_187_50',
-      'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_685_50',
+      'localSpecialities': 'https://genshin-calculator-api.herokuapp.com/images/i_679_50',
     };
     break;
   case 'Ayaka':
