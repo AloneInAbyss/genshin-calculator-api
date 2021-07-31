@@ -2,6 +2,7 @@ const express = require('express');
 const _ = require('lodash');
 const charAscensions = require('../utils/charAscensions');
 const charExp = require('../utils/charExp');
+const charTalents = require('../utils/charTalents');
 const checkAscensionNumber = require('../calcs/ascensionNumber');
 const router = express.Router();
 
@@ -29,12 +30,11 @@ router.get('/ascension/character', (req, res) => {
       initialLevel >= 1 &&
       initialLevel <= 89 &&
       finalLevel >= 2 &&
-      finalLv <= 90 &&
-      initLv <= finalLv
+      finalLevel <= 90 &&
+      initialLevel <= finalLevel
     ) {
       return true;
     }
-
     return false;
   }
 
@@ -322,6 +322,85 @@ router.get('/material/character', (req, res) => {
       },
     },
   }));
+});
+
+router.get('/talent/character', (req, res) => {
+  function verifyLevelRange(initialLevel, finalLevel) {
+    if (
+      initialLevel >= 1 &&
+      initialLevel <= 9 &&
+      finalLevel >= 2 &&
+      finalLevel <= 10 &&
+      initialLevel < finalLevel
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  const requiredParameters = [
+    'initial-level',
+    'final-level',
+  ];
+  if (!verifyParameters(req.query, requiredParameters)) {
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    return res.status(400).send(JSON.stringify({ error: 'Missing information.' }));
+  }
+
+  const initLv = parseInt(req.query['initial-level']);
+  const finalLv = parseInt(req.query['final-level']);
+  if (!verifyLevelRange(initLv, finalLv)) {
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    return res.status(400).send(JSON.stringify({ error: 'Incorrect level values.' }));
+  }
+
+  const result = {
+    'talentBooksRarityTwo': 0,
+    'talentBooksRarityThree': 0,
+    'talentBooksRarityFour': 0,
+    'commonMaterialsRarityOne': 0,
+    'commonMaterialsRarityTwo': 0,
+    'commonMaterialsRarityThree': 0,
+    'weeklyBossMaterial': 0,
+    'mora': 0,
+    'crown': false,
+  };
+
+  for (let i = 1; i <= finalLv - initLv; i++) {
+    switch(charTalents[initLv + i].talentBooksRarity) {
+    case 2:
+      result.talentBooksRarityTwo += charTalents[initLv + i].talentBooks;
+      break;
+    case 3:
+      result.talentBooksRarityThree += charTalents[initLv + i].talentBooks;
+      break;
+    case 4:
+      result.talentBooksRarityFour += charTalents[initLv + i].talentBooks;
+      break;
+    }
+
+    switch(charTalents[initLv + i].commonMaterialsRarity) {
+    case 1:
+      result.commonMaterialsRarityOne += charTalents[initLv + i].commonMaterials;
+      break;
+    case 2:
+      result.commonMaterialsRarityTwo += charTalents[initLv + i].commonMaterials;
+      break;
+    case 3:
+      result.commonMaterialsRarityThree += charTalents[initLv + i].commonMaterials;
+      break;
+    }
+
+    result.weeklyBossMaterial += charTalents[initLv + i].weeklyBossMaterial;
+    result.mora += charTalents[initLv + i].mora;
+    result.crown = charTalents[initLv + i].crown;
+  }
+
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.end(JSON.stringify(result));
 });
 
 module.exports = router;
